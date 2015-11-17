@@ -1,0 +1,29 @@
+<%= form_for(@arrest) do |f| %>
+  <% if @arrest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@arrest.errors.count, "error") %> prohibited this arrest from being saved:</h2>
+
+      <ul>
+      <% @arrest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :arresting_officer %><br />
+    <%= f.text_field :arresting_officer %>
+  </div>
+  <div class="field">
+    <%= f.label :offense %><br />
+    <%= f.text_field :offense %>
+  </div>
+   <div class="field">
+    <%= f.label :client_id %><br />
+    <%= f.select :client_id, Client.find(:all , :order => "name").collect {|s| [s.name, s.id]} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

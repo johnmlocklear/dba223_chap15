@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Client:</b>
+  <%= @arrest.client_id %>
+</p>
+
+<p>
+  <b>Arresting officer:</b>
+  <%= @arrest.arresting_officer %>
+</p>
+
+<p>
+  <b>Offense:</b>
+  <%= @arrest.offense %>
+</p>
+
+
+<%= link_to 'Edit', edit_arrest_path(@arrest) %> |
+<%= link_to 'Back', arrests_path %>
